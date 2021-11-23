@@ -7,10 +7,10 @@
     "build-all": "rollup-c",
     "build": "run() { rollup -c --package=$1; }; run",
     "clean": "run() { cd src/$1 && rimraf build; }; run",
-    "version-and-publish": "run() {yarn clean $1 && yarn build $1 && version=$(cd src/$1 && npm version --no-git-tag-version $2) && (cd src/$1 && npm publish --registry=https://npm.pkg.github.com/) && git add src/$1 && git commit -m \"$1 - $version\" && git push; }; run",
-    "patch": "run() { yarn version-and-push $1 patch; }; run",
-    "minor": "run() { yarn version-and-push $1 minor; }; run",
-    "major": "run() { yarn version-and-push $1 major; }; run"
+    "version-and-publish": "run() { yarn clean $1 && yarn build $1 && version=$(cd src/$1 && npm version --no-git-tag-version $2) && (cd src/$1 && npm publish --registry=https://npm.pkg.github.com/) && git add src/$1 && git commit -m \"$1 - $version\" && git push; }; run",
+    "patch": "run() { yarn version-and-publish $1 patch; }; run",
+    "minor": "run() { yarn version-and-publish $1 minor; }; run",
+    "major": "run() { yarn version-and-publish $1 major; }; run"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.16.0",
     "@babel/preset-react": "^7.16.0",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^21.0.1",
