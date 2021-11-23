@@ -1,0 +1,36 @@
+{
+  "name": "my-component-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-all": "rollup-c",
+    "build": "run() { rollup -c --package=$1; }; run",
+    "clean": "run() { cd src/$1 && rimraf build; }; run",
+    "version-and-publish": "run() {yarn clean $1 && yarn build $1 && version=$(cd src/$1 && npm version --no-git-tag-version $2) && (cd src/$1 && npm publish --registry=https://npm.pkg.github.com/) && git add src/$1 && git commit -m \"$1 - $version\" && git push; }; run",
+    "patch": "run() { yarn version-and-push $1 patch; }; run",
+    "minor": "run() { yarn version-and-push $1 minor; }; run",
+    "major": "run() { yarn version-and-push $1 major; }; run"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "yarn": "^1.22.17"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-url": "^6.1.0",
+    "babel-loader": "^8.2.3",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.60.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2"
+  }
+}
