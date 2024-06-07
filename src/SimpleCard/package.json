@@ -1,6 +1,6 @@
 {
   "name": "@smit-aghera-bluno/simple-card",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "build/index.js",
   "module": "build/index.es.js",
   "repository": "git://github.com/Smit-Aghera-Bluno/my-component-library.git",
