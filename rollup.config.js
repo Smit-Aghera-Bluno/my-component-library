@@ -5,7 +5,6 @@ import resolve from "@rollup/plugin-node-resolve";
 import url from "@rollup/plugin-url";
 import json from "@rollup/plugin-json";
 import postcss from "rollup-plugin-postcss";
-
 const { readdirSync, statSync } = require("fs");
 const { join } = require("path");
 
